@@ -38,6 +38,10 @@
   color: #0d6efd;
   text-decoration: underline;
 }
+.userIcon {
+  margin-right: 10px;
+  font-size: 20px
+}
 
 .form {
   margin-left: auto;
@@ -95,7 +99,8 @@ h2 {
   }
 
   .userWelcomeMessage {
-    text-align: center;
+    display: flex;
+    align-items: center;
     margin-bottom: 10px;
   }
   
