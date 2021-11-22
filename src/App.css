@@ -1,0 +1,102 @@
+.container {
+  width: 500px;
+}
+
+.header {
+  padding: 20px 0;
+  background-color: lightgray;
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+}
+
+.userMenu {
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+  text-transform: uppercase;
+}
+
+.userWelcomeMessage {
+  margin-right: 20px;
+}
+
+.userName {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.link {
+  color: black;
+  font-size: 20px;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 20px;
+}
+
+.linkActive {
+  color: #0d6efd;
+  text-decoration: underline;
+}
+
+.form {
+  margin-left: auto;
+  margin-right: auto;
+
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+
+  max-width: 500px;
+  padding: 20px;
+  border-radius: 0.25rem;
+  border: lightgrey 2px solid;
+  margin-bottom: 20px;
+}
+
+h1,
+h2 {
+  text-align: center;
+  color: #0d6efd;
+}
+
+.listItem {
+  display: flex !important;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+    justify-content: flex-end;
+}
+
+.link:not(:last-child) {
+  margin-right: 20px;
+}
+
+@media screen and (max-width: 353px) {
+  .contactPhone {
+    display: none;
+  }
+
+  .nav {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+  }
+
+  .link.authLink {
+    padding: 10px;
+    margin: 0;
+    text-align: center;
+  }
+
+  .userWelcomeMessage {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  
+}
