@@ -6,7 +6,6 @@ import Button from "react-bootstrap/Button";
 const UserMenu = () => {
   const dispatch = useDispatch();
   const user = useSelector(userName);
-  console.log(user);
   return (
     <>
       <div className="nav">

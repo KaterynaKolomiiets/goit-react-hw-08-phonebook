@@ -26,7 +26,6 @@ export const addPhoneBookContact = createAsyncThunk(
   "contacts/addPhoneBookContact",
   async (newContact, thunkAPI) => {
     const state = thunkAPI.getState();
-    console.log(state);
     if (
       state.contacts.items.some(
         (item) => item.name.toLowerCase() === newContact.name.toLowerCase()

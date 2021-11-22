@@ -20,7 +20,7 @@ export const usersLogInOperation = createAsyncThunk(
       token.set(data.token);
       return data;
     } catch (error) {
-      console.log(error.message);
+     throw new Error (error)
     }
   }
 );
@@ -33,7 +33,7 @@ export const usersLogoutOperation = createAsyncThunk(
       token.unset();
       return data;
     } catch (error) {
-      console.log(error.message);
+      throw new Error(error);
     }
   }
 );
@@ -46,7 +46,7 @@ export const usersSignUpOperation = createAsyncThunk(
       token.set(data.token);
       return data;
     } catch (error) {
-      console.log(error.message);
+       throw new Error(error);
     }
   }
 );
@@ -58,13 +58,14 @@ export const fetchCurrentUser = createAsyncThunk(
     const persistedToken = state.auth.token;
 
     if (!persistedToken) {
-      console.log("no token");
       return thunkAPI.rejectWithValue("User is logged out");
     }
     token.set(persistedToken);
     try {
       const { data } = await axios.get(`${BASE_URL}/users/current`);
       return data;
-    } catch (error) {}
+    } catch (error) {
+       throw new Error(error);
+    }
   }
 );

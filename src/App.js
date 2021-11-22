@@ -1,21 +1,33 @@
 import "./App.css";
 
-import AppBar from "./components/AppBar";
-import RegisterView from "./views/RegisterView";
-import LoginView from "./views/LoginView";
-import ContactsView from "./views/ContactsView";
-import PrivateRoute from "./components/PrivateRoute";
-import PublicRoute from "./components/PublicRoute";
-
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
 import { Switch, Redirect } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
+import { lazy, useEffect, Suspense} from "react";
 import { fetchCurrentUser } from ".//redux/user/user-operations";
 import { getIsFetchingCurrentUser } from "./redux/user/user-auth-selectors";
+
+const AppBar = lazy(() =>
+  import("./components/AppBar" /*webpackChunkName: "AppBar" */)
+);
+const RegisterView = lazy(() =>
+  import("./views/RegisterView" /*webpackChunkName: "RegisterView" */)
+);
+const LoginView = lazy(() =>
+  import("./views/LoginView" /*webpackChunkName: "LoginView" */)
+);
+const ContactsView = lazy(() =>
+  import("./views/ContactsView" /*webpackChunkName: "ContactsView" */)
+);
+const PrivateRoute = lazy(() =>
+  import("./components/PrivateRoute" /*webpackChunkName: "PrivateRoute" */)
+);
+const PublicRoute = lazy(() =>
+  import("./components/PublicRoute" /*webpackChunkName: "PublicRoute" */)
+);
 
 
 const App = () => {
@@ -30,6 +42,7 @@ const App = () => {
     <>
       {!isFetchingCurrent && (
         <div className="App">
+          <Suspense fallback={<h1>LOADING...</h1>}>
           <AppBar />
           <Container>
             <Row>
@@ -51,6 +64,7 @@ const App = () => {
               </Col>
             </Row>
           </Container>
+          </Suspense>
         </div>
       )}
     </>

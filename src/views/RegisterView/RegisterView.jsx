@@ -37,7 +37,7 @@ const RegisterView = () => {
   };
 
   return (
-    <Form className="form" onSubmit={handleSubmit} controlId="registrationForm">
+    <Form className="form" onSubmit={handleSubmit}>
       <h1>Register</h1>
 
       <FloatingLabel label="Name and Surname" className="mb-3">
